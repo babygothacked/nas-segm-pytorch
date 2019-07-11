@@ -7,7 +7,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from .layer_factory import conv_bn_relu, conv3x3, OPS
-from rl.genotypes import OP_NAMES
 
 import logging
 logging.basicConfig(level=logging.INFO)
