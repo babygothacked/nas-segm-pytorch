@@ -7,10 +7,27 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from .layer_factory import conv_bn_relu, conv3x3, OPS
+from collections import namedtuple
 
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+Genotype = namedtuple('Genotype', 'encoder decoder')
+
+OP_NAMES = [
+    'conv1x1',
+    'conv3x3',
+    'sep_conv_3x3',
+    'sep_conv_5x5',
+    'global_average_pool',
+    'conv3x3_dil3',
+    'conv3x3_dil12',
+    'sep_conv_3x3_dil3',
+    'sep_conv_5x5_dil6',
+    'skip_connect',
+    'none'
+]
 
 
 class AggregateCell(nn.Module):
